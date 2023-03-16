@@ -1,8 +1,15 @@
 #include <stdio.h>
-/*
- *main - a program that uses the function printf to print string
- *Return: 0(exit completion)
+
+/**
+ *Description:main-A program that prints a string
+ *
+ *string
+ *
+ *Return: 0(exit status error)
  */
+
+
+
 int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");

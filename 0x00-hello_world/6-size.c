@@ -1,8 +1,14 @@
 #include <stdio.h>
-/*
- * main - a C program that prints the size of various types
- * Return: 0(exit status on completion)
+
+/**
+ *  * Description:main-A program that prints various types
+ *
+ * typeof
+ *
+ *Return: 0(exit status error)
  */
+
+
 int main(void)
 {
 	char c;
