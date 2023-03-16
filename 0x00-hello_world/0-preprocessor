@@ -1,0 +1,3 @@
+#!/bin/sh
+CFILE="cfile.c"
+cpp $CFILE -o c
