@@ -27,8 +27,8 @@ int main(void)
 		if (xy < ab)
 			break;
 	}
-		putchar(a);
-		putchar(b);
+		putchar(a + '0');
+		putchar(b + '0');
 		putchar(',');
 		putchar(' ');
 	}

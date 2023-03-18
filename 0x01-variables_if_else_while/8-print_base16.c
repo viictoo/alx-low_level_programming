@@ -12,14 +12,9 @@ int main(void)
 	int i;
 
 	for (i = '0'; i < 'g'; i++)
-{
-	if (i > 9 && i < 61)
-		{
-		continue;
-		}
-
-	putchar(i);
-}
+		putchar(i);
+	for (i = 0; i < 10; i++)
+		putchar(i);
 	putchar('\n');
 	return (0);
 }
