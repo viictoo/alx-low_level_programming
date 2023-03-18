@@ -14,8 +14,10 @@ int main(void)
 	for (a = 0; a < 10; a++)
 	{
 	putchar(i);
-	putchar('\n')
-	putchar(' ')
+	if ( i == 9)
+		continue;
+	putchar(',');
+	putchar(' ');
 	}
 	putchar('\n');
 	return (0);

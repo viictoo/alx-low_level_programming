@@ -15,7 +15,7 @@ int main(void)
 {
 	if (i > 9 && i < 61)
 		{
-		break;
+		continue;
 		}
 
 	putchar(i);

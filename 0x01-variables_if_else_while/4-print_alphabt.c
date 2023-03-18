@@ -16,7 +16,7 @@
 	{
 
 		if (c == 'q' || c == 'e')
-		break;
+		continue;
 	putchar(c);
 
 	}
