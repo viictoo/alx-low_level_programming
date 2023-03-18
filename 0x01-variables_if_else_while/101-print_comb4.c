@@ -1,34 +1,34 @@
 #include <stdio.h>
 
 /**
- * main: a program that prints three digits
+ * Description:main-All possible different combinations of three digits
  *
- * Return: 0(exit success)
- *
- **/
+ * Return: Always 0 (Success)
+ */
 
-int main(void)
-
+	int main(void)
 {
-	int a, b, c;
+	int x;
+	int y;
+	int z;
 
-	for (a = '0'; a < 9; a++)
+	for (x = 0; x < 8; x++)
 	{
-		for (b = a + 1; b <= '9'; b++)
-		{
-			for (c = b; c <= '9'; c++)
-			{
-				if (c != a) != c)
-					putchar(a);
-					putchar(b);
-					putchar(c);
-					if (a == '7' && b == '8')
-						continue;
-					putchar(',');
-					putchar(' ');
-			}
-		}
+	for (y = x + 1; y < 9; y++)
+	{
+	for (z = y + 1; z < 10; z++)
+	{
+		putchar(x + '0');
+		putchar(y + '0');
+		putchar(z + '0');
+		if (i == 7 || j == 8 || k == 9)
+		continue;
+                    putchar(',');
+                    putchar(' ');
+}
+	}
 	}
 	putchar('\n');
-	return ('0');
+	return (0);
 }
+

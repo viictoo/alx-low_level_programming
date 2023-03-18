@@ -9,29 +9,19 @@ int main(void)
 
 {
 	int a;
-	int y;
 	int b;
-	int x;
 
 
 	for (a = 0; a < 10; a++)
 	{
-	for (b = 0; b < 10; b++)
+	for (b =  a + 1; b < 10; b++)
 	{
-		{
-		y = a;
-		x = b;
-
-		if (ab == xy)
-	{
-		if (xy < ab)
-			break;
-	}
 		putchar(a + '0');
 		putchar(b + '0');
+		if (a == 8 && b == 9)
+		continue;
 		putchar(',');
 		putchar(' ');
-	}
 	}
 	}
 	putchar('\n');
