@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_fibonacci - prints the first 98 Fibonacci numbers
@@ -32,10 +33,6 @@ void print_fibonacci(void)
 
 		if (result > 99999999999999999)
 
-/*
- * check for overflow
- */
-
 		{
 			fibb1 /= 10;
 			fibbnow /= 10;
@@ -46,8 +43,8 @@ void print_fibonacci(void)
 
 		if (i != 98)
 		{
-	_putchar(',');
-	_putchar(' ');
+			_putchar(',');
+			_putchar(' ');
 		}
 	}
 

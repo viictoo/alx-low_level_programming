@@ -21,7 +21,7 @@ int main(void)
 	{
 		newnum = fib1 + fib2;
 
-		printf(", %d", newnum);
+		printf(", %lu", newnum);
 
 		fib1 = fib2;
 
