@@ -13,7 +13,7 @@ int main(void)
 
 	unsigned int a = 1, b = 2;
 
-	int count = 0, digits;
+	int count = 0, digits, i;
 	unsigned int temp, divisor;
 	
 	putchar('1');
