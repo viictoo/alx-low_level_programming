@@ -1,13 +1,12 @@
 #include <stdio.h>
 
 /**
- * main- A program that prints out fibonacci integers
- *
- * return: 0(exit success)
- * 
- */
- 
- 
+* main- A program that prints out fibonacci integers
+*
+* Return: 0(exit success)
+*/
+
+
 int main(void)
 {
 
@@ -15,7 +14,7 @@ int main(void)
 
 	int count = 0, digits, i;
 	unsigned int temp, divisor;
-	
+
 	putchar('1');
 	putchar(',');
 	putchar(' ');
@@ -30,39 +29,39 @@ while (count < 96)
 	b = sum;
 	temp = sum;
 	digits = 0;
-	
+
 	while (temp > 0)
 	{
-	
+
 	temp /= 10;
 	digits++;
 	}
 
 	divisor = 1;
-	
+
 	for (i = 1; i < 9 - digits; i++)
 	{
 	divisor *= 10;
 	}
-	
+
 	for (i = 0; i < digits; i++)
 	{
 	putchar((sum / divisor) % 10 + '0');
 	divisor /= 10;
 	}
-	
+
 	count ++;
-	
+
 	if (count == 98)
 	{
 	putchar('\n');
 	break;
 	}
-	
+}
 	putchar(',');
 	putchar(' ');
 	count++;
 	}
-	
+
 	return (0);
 	}
