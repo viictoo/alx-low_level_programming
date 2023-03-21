@@ -13,7 +13,7 @@ int main(void)
 
 	unsigned int a = 1, b = 2;
 
-	int count = 0;
+	int count = 0, digits;
 	unsigned int temp, divisor;
 	
 	putchar('1');
@@ -39,7 +39,7 @@ while (count < 96)
 	digits++;
 	}
 
-	unsigned int divisor = 1;
+	divisor = 1;
 	
 	for (i = 1; i < 9 - digits; i++)
 	{
