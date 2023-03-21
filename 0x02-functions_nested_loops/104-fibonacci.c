@@ -57,10 +57,9 @@ while (count < 96)
 	putchar('\n');
 	break;
 	}
-}
+
 	putchar(',');
 	putchar(' ');
-	count++;
 	}
 
 	return (0);
