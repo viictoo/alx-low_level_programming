@@ -8,7 +8,7 @@
  */
  
  
-int main()
+int main(void)
 {
 
 	unsigned int a = 1, b = 2;
@@ -26,10 +26,10 @@ while (count < 96)
 {
 	unsigned int sum = a + b;
 	a = b;
-	b = sum % ((unsigned int)1 << 32);
-	
+	b = sum;
 	unsigned int temp = sum;
 	int digits = 0;
+	int i;
 	
 	while (temp > 0)
 	{
@@ -37,21 +37,18 @@ while (count < 96)
 	temp /= 10;
 	digits++;
 	}
-	
-	temp = sum;
-	while (digits > 0) 
-	{
+
 	unsigned int divisor = 1;
 	
-	int i;
-	for (i = 1; i < digits; i++)
+	for (i = 1; i < 9 - digits; i++)
 	{
 	divisor *= 10;
 	}
 	
-	putchar(temp / divisor + '0');
-	temp %= divisor;
-	digits--;
+	for (i = 0; i < digits; i++)
+	{
+	putchar((sum / divisor) % 10 + '0');
+	divisor /= 10;
 	}
 	
 	putchar(',');
