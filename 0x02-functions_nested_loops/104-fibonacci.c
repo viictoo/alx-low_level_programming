@@ -1,64 +1,65 @@
 #include <stdio.h>
-#include <string.h>
 
-#define MAX_DIGITS 1000
-
-int main(void)
+/**
+ * main- A program that prints out fibonacci integers
+ *
+ * return: 0(exit success)
+ * 
+ */
+ 
+ 
+int main()
 {
-    char fib1[MAX_DIGITS] = "1";
-    char fib2[MAX_DIGITS] = "2";
-    char next[MAX_DIGITS];
-    int i;
 
-    printf("%s, %s, ", fib1, fib2);
+	unsigned int a = 1, b = 2;
 
-    for (i = 3; i <= 98; i++)
-    {
-        memset(next, 0, MAX_DIGITS);
+	int count = 0;
 
-        int carry = 0;
-        int j;
+	putchar('1');
+	putchar(',');
+	putchar(' ');
+	putchar('2');
+	putchar(',');
+	putchar(' ');
 
-        for (j = 0; j < strlen(fib2); j++)
-        {
-            int digit1 = fib1[strlen(fib1) - j - 1] - '0';
-            int digit2 = fib2[strlen(fib2) - j - 1] - '0';
-
-            int sum = digit1 + digit2 + carry;
-
-            next[MAX_DIGITS - j - 1] = (sum % 10) + '0';
-
-            carry = sum / 10;
-        }
-
-        for (j = strlen(fib2); j < strlen(fib1); j++)
-        {
-            int digit = fib1[strlen(fib1) - j - 1] - '0';
-
-            int sum = digit + carry;
-
-            next[MAX_DIGITS - j - 1] = (sum % 10) + '0';
-
-            carry = sum / 10;
-        }
-
-        if (carry > 0)
-        {
-            next[MAX_DIGITS - j - 1] = carry + '0';
-        }
-
-        printf("%s", next);
-
-        if (i < 98)
-        {
-            printf(", ");
-        }
-
-        strcpy(fib1, fib2);
-        strcpy(fib2, next);
-    }
-
-    printf("\n");
-
-    return 0;
-}
+while (count < 96)
+{
+	unsigned int sum = a + b;
+	a = b;
+	b = sum % ((unsigned int)1 << 32);
+	
+	unsigned int temp = sum;
+	int digits = 0;
+	
+	while (temp > 0)
+	{
+	
+	temp /= 10;
+	digits++;
+	}
+	
+	temp = sum;
+	while (digits > 0) 
+	{
+	unsigned int divisor = 1;
+	
+	int i;
+	for (i = 1; i < digits; i++)
+	{
+	divisor *= 10;
+	}
+	
+	putchar(temp / divisor + '0');
+	temp %= divisor;
+	digits--;
+	}
+	
+	putchar(',');
+	putchar(' ');
+	count++;
+	}
+	
+	putchar('\n');
+	
+	return (0);
+	}
