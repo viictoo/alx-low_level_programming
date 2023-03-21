@@ -1,11 +1,7 @@
 #include "main.h"
 
-/*
- * jack_bauer- prints every minute of the day
- *
- * @hr: var hours
- *
- * @min: minutes in a day
+/**
+ * jack_bauer:-a funtion that  prints every minute of the day
  *
  * Return: void
  *

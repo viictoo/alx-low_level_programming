@@ -12,7 +12,7 @@
 int main(void)
 {
 
-	int i, fib1 = 1, fib2 = 2, newnum;
+	unsigned long int i, fib1 = 1, fib2 = 2, newnum;
 
 
 	printf("%d, %d", fib1, fib2);
