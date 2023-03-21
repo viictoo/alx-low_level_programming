@@ -1,30 +1,64 @@
 #include <stdio.h>
+#include <string.h>
 
-/**
- * main - prints the first 98 Fibonacci numbers
- *
- * Return: 0 on success
- */
+#define MAX_DIGITS 1000
 
-	int main(void)
-	{
+int main(void)
+{
+    char fib1[MAX_DIGITS] = "1";
+    char fib2[MAX_DIGITS] = "2";
+    char next[MAX_DIGITS];
+    int i;
 
-	long long fib1 = 1, fib2 = 2, next_fib, count;
+    printf("%s, %s, ", fib1, fib2);
 
-	printf("%lld, %lld", fib1, fib2);
+    for (i = 3; i <= 98; i++)
+    {
+        memset(next, 0, MAX_DIGITS);
 
-	for (count = 3; count <= 98; count++)
-	{
+        int carry = 0;
+        int j;
 
-	next_fib = fib1 + fib2;
+        for (j = 0; j < strlen(fib2); j++)
+        {
+            int digit1 = fib1[strlen(fib1) - j - 1] - '0';
+            int digit2 = fib2[strlen(fib2) - j - 1] - '0';
 
-	printf(", %lld", next_fib);
+            int sum = digit1 + digit2 + carry;
 
-	fib1 = fib2;
-	fib2 = next_fib;
-	}
+            next[MAX_DIGITS - j - 1] = (sum % 10) + '0';
 
-	printf("\n");
+            carry = sum / 10;
+        }
 
-	return (0);
+        for (j = strlen(fib2); j < strlen(fib1); j++)
+        {
+            int digit = fib1[strlen(fib1) - j - 1] - '0';
+
+            int sum = digit + carry;
+
+            next[MAX_DIGITS - j - 1] = (sum % 10) + '0';
+
+            carry = sum / 10;
+        }
+
+        if (carry > 0)
+        {
+            next[MAX_DIGITS - j - 1] = carry + '0';
+        }
+
+        printf("%s", next);
+
+        if (i < 98)
+        {
+            printf(", ");
+        }
+
+        strcpy(fib1, fib2);
+        strcpy(fib2, next);
+    }
+
+    printf("\n");
+
+    return 0;
 }
