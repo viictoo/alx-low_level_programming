@@ -11,44 +11,46 @@
 int main(void)
 
 {
-        unsigned long int fibb1 = 1, fibbnow = 2, result;
+	unsigned long int fibb1 = 1, fibbnow = 2, result;
+	
+	int i;
 
-        int i;
-
-        putchar('1');
-        putchar(',');
-        putchar(' ');
-        putchar('2');
-        putchar(',');
-        putchar(' ');
-
-
-        for (i = 3; i <= 98; i++)
-
-        {
-                result = fibb1 + fibbnow;
-                fibb1 = fibbnow;
-                fibbnow = result;
-
-
-                if (i != 98)
-                {
-                        putchar(',');
-                        putchar(' ');
-                }
-                if (result >= 10)
-                {
-                        putchar('0' + (result / 10));
-                        putchar('0' + (result % 10));
-
-                }
-                else
-                {
-                putchar(' ');
-                putchar('0' + result);
-                }
-        }
-                putchar('\n');
-                return (0);
-
+	putchar('1');
+	putchar(',');
+	putchar(' ');
+	putchar('2');
+	putchar(',');
+	putchar(' ');
+	for (i = 3; i <= 98; i++)
+	{
+		result = fibb1 + fibbnow;
+		fibb1 = fibbnow;
+		fibbnow = result;
+		if (i != 98)
+		{
+			putchar(',');
+			putchar(' ');
+		}
+		if (result >= 100)
+		{
+			putchar('0' + (result / 100));
+			putchar(',');
+			putchar('0' + ((result / 10) % 10));
+			putchar('0' + (result % 10));
+	}
+		
+	if (result >= 10)
+		{
+			putchar('0' + (result / 10));
+			putchar('0' + (result % 10));
+		}
+		else
+		{
+			putchar(' ');
+			putchar('0' + result);
+		}
+	}
+	
+	putchar('\n');
+	return (0);
 }
