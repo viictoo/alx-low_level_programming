@@ -15,7 +15,7 @@ int main(void)
 	unsigned long int i, fib1 = 1, fib2 = 2, newnum;
 
 
-	printf("%d, %d", fib1, fib2);
+	printf("%lu, %lu", fib1, fib2);
 
 	for (i = 3; i <= 50; i++)
 	{

@@ -7,7 +7,7 @@
  * Return: void
  *
  **/
-
+void print_number(unsigned long int n);
 
 void print_fibonacci(void)
 
