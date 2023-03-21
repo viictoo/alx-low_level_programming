@@ -29,7 +29,7 @@ while (count < 96)
 	a = b;
 	b = sum;
 	temp = sum;
-	int digits = 0;
+	digits = 0;
 	int i;
 	
 	while (temp > 0)
