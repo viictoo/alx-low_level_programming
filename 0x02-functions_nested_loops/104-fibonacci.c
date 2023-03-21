@@ -4,6 +4,7 @@
 /**
  * print_fibonacci - prints the first 98 Fibonacci numbers
  *
+ * @n: lu integer
  * Return: void
  *
  **/
@@ -55,7 +56,7 @@ void print_fibonacci(void)
 /**
  * print_number - prints a number
  *
- * @n: output number
+ * @n: lu integer
  *
  * Return: void
  *
