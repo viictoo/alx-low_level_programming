@@ -30,7 +30,6 @@ while (count < 96)
 	b = sum;
 	temp = sum;
 	digits = 0;
-	int i;
 	
 	while (temp > 0)
 	{
