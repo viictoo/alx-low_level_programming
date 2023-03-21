@@ -14,7 +14,8 @@ int main(void)
 	unsigned int a = 1, b = 2;
 
 	int count = 0;
-
+	unsigned int temp, divisor;
+	
 	putchar('1');
 	putchar(',');
 	putchar(' ');
@@ -27,7 +28,7 @@ while (count < 96)
 	unsigned int sum = a + b;
 	a = b;
 	b = sum;
-	unsigned int temp = sum;
+	temp = sum;
 	int digits = 0;
 	int i;
 	
