@@ -52,12 +52,18 @@ while (count < 96)
 	divisor /= 10;
 	}
 	
+	count ++;
+	
+	if (count == 98)
+	{
+	putchar('\n');
+	break;
+	}
+	
 	putchar(',');
 	putchar(' ');
 	count++;
 	}
-	
-	putchar('\n');
 	
 	return (0);
 	}
