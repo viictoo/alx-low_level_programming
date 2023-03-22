@@ -8,12 +8,14 @@
  *
  */
 
+
 int main(void)
-
 {
-	unsigned long int fibb1 = 1, fibbnow = 2, result;
 
-	int i;
+	unsigned int a = 1, b = 2;
+
+	int count = 0, digits, i;
+	unsigned int temp, divisor;
 
 	putchar('1');
 	putchar(',');
@@ -22,9 +24,15 @@ int main(void)
 	putchar(',');
 	putchar(' ');
 
+while (count < 96)
+{
+	unsigned int sum = a + b;
+	a = b;
+	b = sum;
+	temp = sum;
+	digits = 0;
 
-	for (i = 3; i <= 98; i++)
-
+	while (temp > 0)
 	{
 		result = fibb1 + fibbnow;
 		fibb1 = fibbnow;
@@ -51,4 +59,24 @@ int main(void)
 		putchar('\n');
 		return (0);
 
-}
+
+	for (i = 0; i < digits; i++)
+	{
+	putchar((sum / divisor) % 10 + '0');
+	divisor /= 10;
+	}
+
+	count ++;
+
+	if (count == 98)
+	{
+	putchar('\n');
+	break;
+	}
+
+	putchar(',');
+	putchar(' ');
+	}
+
+	return (0);
+	}
