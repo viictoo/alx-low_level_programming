@@ -1,82 +1,43 @@
-#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-/**
- * main - prints the first 98 Fibonacci numbers
- *
- * Return: void
- *
+/*
+ * main - A program that prints 1st to 98th fibonacci term
+ * 
+ * Return: 0(exit success)
  */
+ 
+unsigned long fib(unsigned int n)
+{
+	unsigned long a = 0, b = 1, c = 0;
+	unsigned int i;
+	
+	for (i = 1; i <= n; i++)
+	{
 
+	c = a + b;
+	a = b;
+	b = c;
+	}
+
+	return a;
+}
 
 int main(void)
 {
+	unsigned int i;
 
-	unsigned int a = 1, b = 2;
-
-	int count = 0, digits, i;
-	unsigned int temp, divisor;
-
-	putchar('1');
-	putchar(',');
-	putchar(' ');
-	putchar('2');
-	putchar(',');
-	putchar(' ');
-
-while (count < 96)
-{
-	unsigned int sum = a + b;
-	a = b;
-	b = sum;
-	temp = sum;
-	digits = 0;
-
-	while (temp > 0)
+	for (i = 1; i <= 98; i++)
 	{
-		result = fibb1 + fibbnow;
-		fibb1 = fibbnow;
-		fibbnow = result;
-
-
+		printf("%lu", fib(i));
 		if (i != 98)
-		{
-			putchar(',');
-			putchar(' ');
-		}
-		if (result >= 10)
-		{
-			putchar('0' + (result / 10);
-			putchar('0' + (result % 10));
-
-		}
-		else
-		{
-		putchar(' ');
-		putchar('0' + result);
-		}
-	}
-		putchar('\n');
-		return (0);
-
-
-	for (i = 0; i < digits; i++)
 	{
-	putchar((sum / divisor) % 10 + '0');
-	divisor /= 10;
+		printf(", ");
+	}
 	}
 
-	count ++;
-
-	if (count == 98)
-	{
-	putchar('\n');
-	break;
-	}
-
-	putchar(',');
-	putchar(' ');
-	}
+	printf("\n");
 
 	return (0);
-	}
+
+}
