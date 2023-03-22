@@ -8,16 +8,23 @@
  *
  */
 
+
 int main(void)
 {
 
 	unsigned int a = 1, b = 2;
 
 	int count = 0, digits, i;
-
 	unsigned int temp, divisor;
 
-	while (count < 96)
+	putchar('1');
+	putchar(',');
+	putchar(' ');
+	putchar('2');
+	putchar(',');
+	putchar(' ');
+
+while (count < 96)
 {
 	unsigned int sum = a + b;
 	a = b;
@@ -27,7 +34,6 @@ int main(void)
 
 	while (temp > 0)
 	{
-
 		result = fibb1 + fibbnow;
 		fibb1 = fibbnow;
 		fibbnow = result;
@@ -48,19 +54,11 @@ int main(void)
 		{
 		putchar(' ');
 		putchar('0' + result);
+		}
 	}
-	temp /= 10;
-	digits++;
-	}
-
-	divisor = 1;
-
-	for (i = 1; i < 9 - digits; i++)
-	{
-	divisor *= 10;
-
 		putchar('\n');
 		return (0);
+
 
 	for (i = 0; i < digits; i++)
 	{
