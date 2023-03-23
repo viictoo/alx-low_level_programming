@@ -4,15 +4,18 @@
   * print_triangle- A function that prints a triangle
   * followed by a new line
   * @size: is the size of the triangle
-  * Return: 0 (exit status success)
+  * Return:  (exit size less than/= 0)
   */
 
 void print_triangle(int size)
 {
 	int i, j;
 
-	if (n <= 0)
+	if (size <= 0)
+	{
 		_putchar('\n');
+		return;
+	}
 	else
 	{
 		for (i = 0; i < size; i++)
@@ -24,5 +27,4 @@ void print_triangle(int size)
 		_putchar('\n');
 		}
 	}
-	return (0);
 }

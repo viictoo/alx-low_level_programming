@@ -3,8 +3,6 @@
 /**
   * print_numbers- A function that prints numbers from 0-9
   * followed by a new line
-  *
-  * Return: 0(exit status success)
   */
 
 void print_numbers(void)
@@ -17,7 +15,4 @@ void print_numbers(void)
 	}
 	_putchar('\n');
 
-
-
-	return (0);
 }

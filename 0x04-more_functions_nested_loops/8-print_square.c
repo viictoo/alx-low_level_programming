@@ -3,7 +3,7 @@
 /**
   * print_square- A function that prints a square followed by a new line
   * @size: size of square
-  * Return: 0(exit success)
+  * Return: (less than 0)
   */
 
 void print_square(int size)
@@ -11,7 +11,10 @@ void print_square(int size)
 	int i, j;
 
 	if (size <= 0)
+	{
 		_putchar('\n');
+		return;
+	}
 	else
 	{
 		for (i = 0; i < size; i++)
@@ -21,5 +24,4 @@ void print_square(int size)
 		}
 		_putchar('\n');
 	}
-	return (0);
 }
