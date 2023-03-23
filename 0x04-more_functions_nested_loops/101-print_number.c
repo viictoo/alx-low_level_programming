@@ -11,24 +11,24 @@
 void print_number(int n)
 {
 
-	int digit, divisor = 1;
+	int num, div = 1;
 
 	if (n < 0)
 	{
 	_putchar('-');
 	n = -n;
 	}
-	while (n / divisor)
+	while (n / div)
 	{
-		digit = n / divisor;
-		_putchar(digit + '0');
-		n -= digit * divisor;
+		num = n / div;
+		_putchar(num + '0');
+		n -= num * div;
 		divisor /= 10;
 	}
 
 
 	if (n >= 0)
-	_putchar(n + '0');
+	_putchar(n % 10 + '0');
 
 }
 
