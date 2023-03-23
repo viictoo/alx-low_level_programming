@@ -18,17 +18,17 @@ void print_number(int n)
 	_putchar('-');
 	n = -n;
 	}
-	while (n / div)
+	while (n / div || n < 0)
 	{
 		num = n / div;
-		_putchar(num + '0');
+		_putchar(num % 10 + '0');
 		n -= num * div;
-		divisor /= 10;
+		div /= 10;
 	}
 
 
 	if (n >= 0)
-	_putchar(n % 10 + '0');
+	_putchar(n + '0');
 
 }
 
