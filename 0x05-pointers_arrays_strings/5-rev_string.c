@@ -8,7 +8,7 @@
 
 void rev_string(char *s)
 {
-	int len, i;
+	int len, i, swap;
 
 
 	while (*(s + len) != '\0')
@@ -16,14 +16,10 @@ void rev_string(char *s)
 		len++;
 	}
 
-	char *swarray[len];
-
 	for (i = 0; i < len / 2; i++)
 	{
 		swap = s[i];
 		s[i] = s[len - i - 1];
-		s[len - i - 1] = swap
+		s[len - i - 1] = swap;
 	}
-
-	s[i] = swarray[len - 1 - i];
 }
