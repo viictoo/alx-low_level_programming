@@ -15,15 +15,15 @@ void rev_string(char *s)
 	{
 		len++;
 	}
+
 	char *swarray[len];
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len / 2; i++)
 	{
-		swarray[i] = s[i];
+		swap = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = swap
 	}
 
-	for (i = 0; i < len; i++)
-	{
-		s[i] = swarray[len - 1 - i];
-	}
+	s[i] = swarray[len - 1 - i];
 }
