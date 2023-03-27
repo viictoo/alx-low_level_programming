@@ -23,7 +23,7 @@ int main(void)
 
 	if (ascii == 34 || ascii == 39 || ascii == 92)
 		ascii++;
-		password[i] = ascii;
+	password[i] = ascii;
 	}
 
 	password[len] = '\0';

@@ -10,16 +10,17 @@
 int _atoi(char *s)
 {
 	int sign = 1;
-	int num = 0;
+	unsigned int num = 0;
 
 	while (*s != '\0')
 	{
-		if (*s == '-')
+
+		if (*s >= '0' && *s <= '9')
 		{
-			sign = -1;
-		}
-		else if (*s >= '0' && *s <= '9')
-		{
+			if (*(s - 1) == '-')
+			{
+				sign = -1;
+			}
 			num = num * 10 + (*s - '0');
 		}
 		else if (num > 0)
