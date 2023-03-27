@@ -9,18 +9,18 @@
 
 void puts_half(char *str)
 {
-	unsigned int i, len;
+	unsigned int i, len, half;
 
 	len = strlen(str);
 
-	int half = len / 2;
+	half = len / 2;
 
 	if (len % 2 != 0)
 	{
 		half = (len - 1) / 2;
 	}
 
-	for (int i = half; i < len; i++)
+	for (i = half; i < len; i++)
 	{
 		_putchar(str[i]);
 	}
