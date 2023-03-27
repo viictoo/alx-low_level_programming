@@ -15,7 +15,7 @@ void rev_string(char *s)
 	{
 		len++;
 	}
-	char swarray[len];
+	char *swarray[len];
 
 	for (i = 0; i < len; i++)
 	{
