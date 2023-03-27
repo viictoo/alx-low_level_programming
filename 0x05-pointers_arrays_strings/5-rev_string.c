@@ -10,15 +10,20 @@ void rev_string(char *s)
 {
 	int len, i;
 
+
 	while (*(s + len) != '\0')
 	{
 		len++;
 	}
+	char swarray[len];
 
-	for (i  = len - 1; i >= 0; i--)
+	for (i = 0; i < len; i++)
 	{
-		_putchar(*(s + i))i;
+		swarray[i] = s[i];
 	}
 
-	_putchar('\n');
+	for (i = 0; i < len; i++)
+	{
+		s[i] = swarray[len - 1 - i];
+	}
 }
