@@ -29,8 +29,10 @@ int main(void)
 
 	/*if adding the number would make the sum greater than 2772,exit loop*/
 
-		if ((sum + random_num > 2772)
+		if ((sum + random_num) > 2772)
+		{
 				break;
+		}
 		sum += random_num;
 
 	/*character equivalent of random number*/
