@@ -3,33 +3,44 @@
 #include <time.h>
 
 /**
-  * main-A program that generates random valid passwords
+  * main-A program that generates a sequence of random characters
+  * with a total length 2772
   *
   * Return: (exit success)
   */
 
 int main(void)
 {
-	int i, len, ascii;
-	char password[100];
+	int random_num = 0, sum = 0;
+	time_t t;
 
-	srand(time(NULL));
+	/*initialize random number*/
 
-	len = rand() % 11 + 8;
+	srand((unsigned int) time(&t));
 
-	for (i = 0; i < len; i++)
+	/*Generate random nummbers until the sum is >= 2772 */
+
+	while (sum < 2772)
 	{
-		ascii = rand() % 94 + 33;
 
-	if (ascii == 34 || ascii == 39 || ascii == 92)
-		ascii++;
-	password[i] = ascii;
+	/*generate random number btw 0 and 127*/
+
+		random_num = rand() % 128;
+
+	/*if adding the number would make the sum greater than 2772,exit loop*/
+
+		if ((sum + random_num > 2772)
+				break;
+		sum += random_num;
+
+	/*character equivalent of random number*/
+
+		printf("%c", random_num);
 	}
 
-	password[len] = '\0';
+	/*char equivalent of difference btw 2772 and sum*/
 
-	printf("Tada! Congrats %s\n", password);
-
+	printf("%c\n", (2772 - sum));
 	return (0);
 }
 
