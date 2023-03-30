@@ -10,7 +10,7 @@ char *leet(char *str)
 {
 	int i, j;
 
-	char leet_num[] = "44337700";
+	char leet_num[] = "4433007711";
 	char leet_chars[] = "aAeEoOtTlL";
 
 	for (i = 0; str[i] != '\0'; i++)

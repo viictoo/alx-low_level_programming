@@ -19,4 +19,4 @@ void print_number(int n)
 	}
 	_putchar(n % 10 + '0');
 }
-
+/*rework to use for loop*/
