@@ -23,6 +23,8 @@ char *rot13(char *str)
 		else
 			continue;
 
+		str[i] = c;
+
 	}
 
 	return (str);
