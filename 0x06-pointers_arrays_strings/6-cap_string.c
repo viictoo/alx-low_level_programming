@@ -17,19 +17,10 @@ char *cap_string(char *str)
 
 	for (i = 1; str[i] != '\0'; i++)
 	{
-		if (str[i - 1] == ' ' ||
-				str[i - 1] == '\t' ||
-				str[i - 1] == '\n' ||
-				str[i - 1] == ',' ||
-				str[i - 1] == ';' ||
-				str[i - 1] == '.' ||
-				str[i - 1] == '!' ||
-				str[i - 1] == '?' ||
-				str[i - 1] == '"' ||
-				str[i - 1] == '(' ||
-				str[i - 1] == ')' ||
-				str[i - 1] == '{' ||
-				str[i - 1] == '}')
+		if (str[i - 1] == ' '
+			|| str[i - 1] == '\t'
+			|| str[i - 1] == '\n'
+			|| ispunct(str[i - 1]))
 		{
 			if (isalpha(str[i]))
 				str[i] = toupper(str[i]);
