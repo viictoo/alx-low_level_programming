@@ -10,7 +10,7 @@
 
 char *cap_string(char *str)
 {
-	unsigned int i;
+	int i;
 
 	if (isalpha(str[0]))
 		str[0] = toupper(str[0]);
