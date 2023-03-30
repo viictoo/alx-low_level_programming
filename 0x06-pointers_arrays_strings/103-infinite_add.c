@@ -15,13 +15,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int len2 = strlen(n2);
 	unsigned int num_n1, num_n2;
 	unsigned int over = 0, sum = 0;
-	int i = len1 - 1, j = len2 - 1;
-	int x = 0;
+	int i = len1 - 1, j = len2 - 1, x = 0;
 	char temp;
 
 	if (len1 > size_r - 1 || len2 > size_r - 1)
 		return (0);
-
 	while (i >= 0 || j >= 0)
 	{
 		if (i >= 0)
@@ -52,6 +50,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[j] = temp;
 	}
 	r[x] = '\0';
-	 return (r);
+	return (r);
 }
 
