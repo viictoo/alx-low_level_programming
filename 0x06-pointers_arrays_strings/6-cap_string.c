@@ -9,12 +9,15 @@
 
 char *cap_string(char *str)
 {
-	int i;
+	unsigned int i;
 
-	for (i = 0; str[i] != 0; i++)
+	if (isalpha(str[0]))
+		str[0] = toupper(str[0]);
+
+	for (i = 1; str[i] != 0; i++)
 	{
-		if (isspace(str[i]) || ispunct(str[i]))
-			str[i + 1] = toupper(str[i + 1]);
+		if (isspace(str[i - 1]) || ispunct(str[i - 1]))
+			str[i] = toupper(str[i]);
 	}
 	return (str);
 }
