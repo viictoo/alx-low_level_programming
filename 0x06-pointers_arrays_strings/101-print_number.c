@@ -34,5 +34,5 @@ void print_number(int n)
 	divisor /= 10;
 	}
 	}
-}
+
 /*rework to use loop*/

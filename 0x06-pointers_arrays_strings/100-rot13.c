@@ -18,10 +18,8 @@ char *rot13(char *str)
 
 		if (c >= 'a' && c <= 'z')
 			c = 'a' + ((c - 'a' + 13) % 26);
-		else if (c >= 'A' && c <= 'Z')
+		else (c >= 'A' && c <= 'Z')
 			c = 'A' + ((c - 'A' + 13) % 26);
-		else
-			continue;
 
 		str[i] = c;
 

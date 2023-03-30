@@ -17,7 +17,20 @@ char *cap_string(char *str)
 
 	for (i = 1; str[i] != 0; i++)
 	{
-		if (isspace(str[i - 1]) || ispunct(str[i - 1]))
+		if (string[i - 1] == " " ||
+				string[i - 1] == '\t' ||
+				string[i - 1] == '\n' ||
+				string[i - 1] == ',' ||
+				string[i - 1] == ';' ||
+				string[i - 1] == '.' ||
+				string[i - 1] == '!' ||
+				string[i - 1] == '?' ||
+				string[i - 1] == '"' ||
+				string[i - 1] == '(' ||
+				string[i - 1] == ')' ||
+				string[i - 1] == '{' ||
+				string[i - 1] == '}')
+
 			str[i] = toupper(str[i]);
 	}
 	return (str);
