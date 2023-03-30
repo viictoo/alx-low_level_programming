@@ -15,9 +15,9 @@ char *cap_string(char *str)
 	if (isalpha(str[0]))
 		str[0] = toupper(str[0]);
 
-	for (i = 1; str[i] != 0; i++)
+	for (i = 1; str[i] != '\0'; i++)
 	{
-		if (str[i - 1] == " " ||
+		if (str[i - 1] == ' ' ||
 				str[i - 1] == '\t' ||
 				str[i - 1] == '\n' ||
 				str[i - 1] == ',' ||
@@ -30,8 +30,10 @@ char *cap_string(char *str)
 				str[i - 1] == ')' ||
 				str[i - 1] == '{' ||
 				str[i - 1] == '}')
-
-			str[i] = toupper(str[i]);
+		{
+			if (isalpha(str[i]))
+				str[i] = toupper(str[i]);
+		}
 	}
 	return (str);
 }
