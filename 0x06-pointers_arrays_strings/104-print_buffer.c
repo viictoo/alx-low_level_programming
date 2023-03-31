@@ -23,24 +23,22 @@ void print_buffer(char *b, int size)
 			printf("%02x%02x ", b[i + j], b[i + j + 1]);
 		}
 		else
-			printf("     ");
+			printf("    ");
+	}
 
-	if (j == 6)
-		printf(" ");
-	}
-	printf(" ");
-	for (j = 0; j < 10; j++)
+	for (j = i; j < i + 10; j++)
 	{
-	if (j + i < size)
+	if (j < size)
 	{
-		if (b[i + j] < 32 || b[i + j] > 126)
-			printf("%c", '.');
-		else
-			printf("%c", *(b + i + j));
+	if (b[j] >= 32 && b[j] <= 126)
+		printf("%c", b[j]);
+	else
+		printf(".");
 	}
-		else
-		printf(" ");
+	else
+		break;
 	}
+
 	printf("\n");
 	}
 	if (size <= 0)
