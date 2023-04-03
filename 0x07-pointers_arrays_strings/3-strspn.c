@@ -10,23 +10,23 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, count = 0;
-	int lena = strlen(accept);
+	unsigned int i, j, count = 0;
+	unsigned int lena = strlen(accept);
+	unsigned int len_s = strlen(s);
 
 
-	while (*s != '\0')
+	for (i = 0; i < len_s; i++)
 	{
-		for (i = 0; i < lena; i++)
+		for (j = 0; j < lena; j++)
 		{
-			if (*s == accept[i])
+			if (s[i] == accept[j])
 			{
 				count++;
 				break;
 			}
 		}
-		if (i == lena)
-			break;
-		s++;
+		if (j == lena)
+			return (count);
 	}
 	return (count);
 }
