@@ -4,7 +4,7 @@
   * _strcmp- A funcion that compares two strings
   * @s1: string to comapare
   * @s2: string to compare
-  * Return: 0 if equal , 15 if s1 is longer otherwise -15
+  * Return: 0 if equal , +ve int if s1 is longer otherwise -ve
   */
 
 int _strcmp(char *s1, char *s2)
