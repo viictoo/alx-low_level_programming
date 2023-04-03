@@ -1,5 +1,5 @@
 #include "main.h"
-#include <srting.h>
+#include <string.h>
 
 /**
   * _strspn-A function that returns number of bytes in the initial segement
