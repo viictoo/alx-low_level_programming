@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 
-int sqrt_calc(int n, int i)int prime_calc(int n, int x);
+int sqrt_calc(int n, int i);
+int prime_calc(int n, int x);
 int strinder(char *s, int first, int last);
 void _puts_recursion(char *s);
 void _print_rev_recursion(char *s);
