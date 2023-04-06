@@ -12,7 +12,9 @@ int clutch(char *s1, char *s2)
 	if (*s2 == '*')
 	{
 		if (*s1 == '\0')
-			return (clutch(s1, s2 + 1) || (clutch(s1 + 1, s2)));
+			return (clutch(s1, s2 + 1));
+
+			return ((clutch(s1 + 1, s2)) || clutch(s1, s2 + 1));
 	}
 		return ((*s1 == *s2) && clutch(s1 + 1, s2 + 1));
 }
@@ -25,22 +27,14 @@ int clutch(char *s1, char *s2)
 
 int wildcmp(char *s1, char *s2)
 {
-	if (*s2 == '\0')
-	{
-		if (*s1 == '\0')
-			return (1);
-		return (0);
-	}
+	if (*s2 == '\0' && *s1 == '\0')
+		return (1);
 
-	else if (*s1 == '\0')
-	{
+	if (*s1 == '\0')
 	return (*s2 == '*' && (wildcmp(s1, s2 + 1)));
-	}
-	else if (*s2 == *)
-	{
+	if (*s2 == '*')
 		return (clutch(s1, s2));
 
-	}
 	return ((*s1 == *s2) && wildcmp(s1 + 1, s2 + 1));
 }
 
