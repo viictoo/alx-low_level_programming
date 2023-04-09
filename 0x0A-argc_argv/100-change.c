@@ -16,19 +16,20 @@ int main(int argc, char *argv[])
 	int count = 0;
 	int coins[] = {25, 10, 5, 2, 1};
 
-	balance = atoi(argv[1]);
-
-	if (argc != 2)
+	if (argc != 2 || argv[1] == NULL)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else if (balance < 0)
+
+	balance = atoi(argv[1]);
+
+	if (balance < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
-	else
+
 	{
 
 		for (i = 0; i < 5; i++)
@@ -39,7 +40,9 @@ int main(int argc, char *argv[])
 			balance = balance % coins[i];
 		}
 		}
-		}
-		printf("%d\n", count);
-		return (0);
+	}
+
+	printf("%d\n", count);
+
+	return (0);
 }
