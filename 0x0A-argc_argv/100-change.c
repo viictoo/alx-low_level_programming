@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int i;
-	unsigned int balance = 0;
+	long balance = 0;
 	int count = 0;
 	int coins[] = {25, 10, 5, 2, 1};
 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 		for (i = 0; i < 5; i++)
 		{
-		if (balance / coins[i] >= 0)
+		if (balance / coins[i] > 0)
 		{
 			count += balance / coins[i];
 			balance = balance % coins[i];
