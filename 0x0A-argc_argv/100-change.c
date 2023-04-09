@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	else if (change <= 0)
+	else if (change < 0)
 	{
 		printf("0\n");
 		return (0);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 		for (i = 0; i < 5; i++)
 		{
-		if (change / coins[i] > 0)
+		if (change / coins[i] >= 0)
 		{
 			count += change / coins[i];
 			change = change % coins[i];
