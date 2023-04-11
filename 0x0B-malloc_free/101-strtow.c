@@ -13,7 +13,7 @@ char **strtow(char *str)
 	int word_count = 0, spaces = 1, i = 0, len;
 	char *c, **words;
 
-if (str == NULL || *str == '\0' || (*str == ' ' && *(str + 1)  == '\0'))
+	if (str == NULL || *str == '\0' || (*str == ' '))
 		return (NULL);
 	for (c = str; *c != '\0'; c++)
 	{
