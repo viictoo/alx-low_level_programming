@@ -13,7 +13,7 @@ char **strtow(char *str)
 	int word_count = 0, spaces = 1, i = 0, len;
 	char *c, **words;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || *str == '\0' || str == " ")
 		return (NULL);
 	for (c = str; *c != '\0'; c++)
 	{
@@ -22,8 +22,7 @@ char **strtow(char *str)
 		else if (spaces)
 		{
 			word_count++;
-			spaces = 0;
-		}}
+			spaces = 0; }}
 	words = malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
@@ -48,8 +47,6 @@ char **strtow(char *str)
 			strncpy(words[i], c, len);
 			*(words[i] + len) = '\0';
 			i++;
-			spaces = 0;
-		}}
+			spaces = 0; }}
 	words[i] = NULL;
-	return (words);
-}
+	return (words); }
