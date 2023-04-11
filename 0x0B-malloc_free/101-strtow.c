@@ -10,12 +10,11 @@
 
 char **strtow(char *str)
 {
-	int word_count = 0, spaces = 1;
+	int word_count = 0, spaces = 1, i = 0, len;
 	char *c, **words;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-
 	for (c = str; *c != '\0'; c++)
 	{
 		if (*c == ' ')
@@ -24,15 +23,10 @@ char **strtow(char *str)
 		{
 			word_count++;
 			spaces = 0;
-		}
-	}
+		}}
 	words = malloc((word_count + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
-
-	int i = 0;
-	int len;
-
 	spaces = 1;
 	for (c = str; *c != '\0'; c++)
 	{
@@ -51,12 +45,11 @@ char **strtow(char *str)
 				free(words);
 				return (NULL);
 			}
-			strncpy(words[i], p, len);
+			strncpy(words[i], c, len);
 			*(words[i] + len) = '\0';
 			i++;
 			spaces = 0;
-		}
-	}
+		}}
 	words[i] = NULL;
 	return (words);
 }

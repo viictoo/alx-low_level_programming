@@ -24,6 +24,7 @@ char *argstostr(int ac, char **av)
 	{
 		len += strlen(av[i]) + 1;
 	}
+	len++;
 
 	/*allocate memory for the concatenated string*/
 
