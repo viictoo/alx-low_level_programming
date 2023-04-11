@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
-  * _strdup - A function that returns a pointer to a new string which is a 
+  * _strdup - A function that returns a pointer to a new string which is a
   * duplicate of the string str
   * @str: string to duplicate
   * Return: pointer to duplicated string otherwise (NULL)
@@ -16,7 +16,7 @@ char *_strdup(char *str)
 		return (NULL);
 
 	dup = malloc((strlen(str) + 1) * sizeof(char));
-	
+
 	if (dup == NULL)
 		return (NULL);
 
@@ -24,4 +24,4 @@ char *_strdup(char *str)
 
 	return (dup);
 }
-	
+

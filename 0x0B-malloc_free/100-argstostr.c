@@ -25,6 +25,7 @@ char *argstostr(int ac, char **av)
 
 	/*allocate memory for the concatenated string*/
 	char *str = (char *)malloc(len * sizeof(char));
+
 	if (str == NULL)
 		return (NULL);
 
