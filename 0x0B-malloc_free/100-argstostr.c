@@ -11,11 +11,12 @@
 
 char *argstostr(int ac, char **av)
 {
+	int i, j;
+	int len = 0;
+
 	/*Return NULL if ac == 0 or av == NULL*/
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	int i, j, len = 0;
 
 	/*calculate the total length of the concatenated string + '\n'*/
 	for (i = 0; i < ac; i++)
@@ -24,7 +25,9 @@ char *argstostr(int ac, char **av)
 	}
 
 	/*allocate memory for the concatenated string*/
-	char *str = (char *)malloc(len * sizeof(char));
+	char *str;
+
+	str = malloc(len * sizeof(char));
 
 	if (str == NULL)
 		return (NULL);
