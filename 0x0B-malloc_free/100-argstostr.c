@@ -5,7 +5,7 @@
 /**
   * argstostr - A function that concatenates all the arguments of your program
   * @ac: integer size of array
-  * @av: vector
+  * @av: vector to array of arguments
   * Return: pointer to new string otherwise NULL
   */
 
@@ -30,10 +30,13 @@ char *argstostr(int ac, char **av)
 	str = malloc(len * sizeof(char));
 
 	if (str == NULL)
+	{
+		free(str);
 		return (NULL);
+	}
 
 	/*iterate over each argument & copy it into the concatenated string*/
-	for (i = 0; i < ac; i++)
+	for (i = 0, j = 0; i < ac; i++)
 	{
 		strcpy(str + j, av[i]);
 		j += strlen(av[i]);
