@@ -19,7 +19,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	len_s1  = strlen(s1);
+	len_s1  = strlen(s1) + 1;
 	len_s2 = n;
 
 	if (n >= strlen(s2))
@@ -29,13 +29,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (cat == NULL)
 		return (NULL);
+
+	char *temp = cat;
 	while (len_s1-- > 0)
 	{
-		*cat++ = *s1++;
+		*temp++ = *s1++;
 	}
 	while (len_s2-- > 0)
 	{
-		*(cat++ + len_s1) = *s2++;
+		*(temp++ + len_s1) = *s2++;
 	}
 /*
 *	using memcpy()
