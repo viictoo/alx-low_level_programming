@@ -1,5 +1,9 @@
 #include "main.h"
+#include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
+#include <stdio.h>
+
 /**
   * mul- A function that multiplies twi numbers
   * @num1: integer
@@ -9,6 +13,7 @@
 
 int mul(char *num1, char *num2)
 {
+	return (0);
 
 }
 
@@ -21,39 +26,48 @@ int mul(char *num1, char *num2)
 
 int main(int argc, char *argv[])
 {
-	int result;
+	long result;
 	long num1, num2;
+	int i;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	for (i = 0; i < strlen(argv[1]); i++)
 	{
 		if (!isdigit(argv[1][i]))
 		{
-			printf("Error"\n);
-			return (98);
+			printf("Error\n");
+			exit(98);
 		}
 	}
 	for (i = 0; i < strlen(argv[1]); i++)
 	{
+		if (!isdigit(argv[1][i]))
+		{
+			printf("Error\n");
+			exit(98);
+		}
+	}
 
 
-
-
-	if (num1 == 0)
+	if (num1 == 0 || num2 == 0)
 	{
 		printf("Error\n");
-		exit 98;
+		exit(98);
 	}
-	num2 = strtol(argv[2]);
-	{
-		printf("Error\n");
-		exit 98;
-	}
-	return (num1 * num2);
+
+	num1 = strtol(argv[1], NULL, 10);
+	num2 = strtol(argv[2], NULL, 10);
+
+	result = (num1 * num2);
+	printf("%ld\n", result);
+	free(result);
+
+
+	return (0);
 }
 
