@@ -1,93 +1,86 @@
-#include "main.h"
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
 
 /**
- * mul- A function that multiplies two numbers
- * @num1: integer
- * @num2: integer
- * @len1: length of string 1
- * @len2: length of string 2
- * Return: integer product
+ * mul - Multiplies two numbers
+ * @num1: First number
+ * @num2: Second number
+ * @len1: Length of first number
+ * @len2: Length of second number
+ * Return: Result of multiplication as a string
  */
-long int mul(long num1, long num2, int len1, int len2)
+char *mul(char *num1, char *num2, int len1, int len2)
 {
-	int i, j, n1, n2, carry, swap;
-	long int result = 0, mul1 = 1, mul2 = 1;
+	int *res = calloc(len1 + len2, sizeof(int)), i, j, carry, n1, n2;
+	char *str;
 
 	for (i = len1 - 1; i >= 0; i--)
 	{
-		n1 = num1 % 10;
-		mul2 = 1;
-
+		carry = 0;
+		n1 = num1[i] - '0';
 		for (j = len2 - 1; j >= 0; j--)
 		{
-			n2 = num2 % 10;
-			carry = 0;
-
-			swap = n1 * n2 + carry + (result / 10);
-			carry = swap / 10;
-			result = swap % 10;
-			mul2 *= 10;
+			n2 = num2[j] - '0';
+			res[i + j + 1] += n1 * n2 + carry;
+			carry = res[i + j + 1] / 10;
+			res[i + j + 1] %= 10;
 		}
-
-		if (carry > 0)
-			result += carry * mul2;
-
-		mul1 *= 1;
-		result *= mul1;
+		res[i + j + 1] += carry;
 	}
-
-	return (result);
+	for (i = 0; i < len1 + len2 && !res[i]; i++)
+		;
+	str = malloc(sizeof(char) * (len1 + len2 - i + 1));
+	if (str == NULL)
+	{
+		free(res);
+		return (NULL);
+	}
+	for (j = 0; i < len1 + len2; j++, i++)
+		str[j] = res[i] + '0';
+	str[j] = '\0';
+	free(res);
+	return (str);
 }
 
 /**
- * main-A program that multiplies two positive numbers
- * @argc: integer count of arguments to main
- * @argv: vector
- * Return: prod of two numbers otherwise 98
+ * main - Entry point. Multiplies two positive numbers.
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
+ * Return: Always 0 (success) or 98 (failure)
  */
-
 int main(int argc, char *argv[])
 {
-	long result;
-	long num1, num2;
-	unsigned int i, len_1, len_2;
+	int i, j, len1, len2;
+	char *res;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
-		exit(98);
+		return (98);
 	}
-	for (i = 0; i < strlen(argv[1]); i++)
+	for (i = 1; i <= 2; i++)
 	{
-		if (!isdigit(argv[1][i]))
+		for (j = 0; argv[i][j]; j++)
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (98);
+			}
+		if (argv[i][0] == '0' && argv[i][1] != '\0')
 		{
 			printf("Error\n");
-			exit(98);
-		}}
-	for (i = 0; i < strlen(argv[2]); i++)
-	{
-		if (!isdigit(argv[2][i]))
-		{
-			printf("Error\n");
-			exit(98);
+			return (98);
 		}
 	}
-	len_1 = strlen(argv[1]);
-	len_2 = strlen(argv[2]);
-
-	num1 = strtol(argv[1], NULL, 10);
-	num2 = strtol(argv[2], NULL, 10);
-	 if (num1 == 0 || num2 == 0)
-	 {
-		 printf("Error\n");
-		 exit(98);
-	 }
-	result = mul(num1, num2, len_1, len_2);
-	printf("%ld\n", result);
+	len1 = strlen(argv[1]);
+	len2 = strlen(argv[2]);
+	res = mul(argv[1], argv[2], len1, len2);
+	if (res == NULL)
+		return (98);
+	printf("%s\n", res);
+	free(res);
 	return (0);
 }
 
