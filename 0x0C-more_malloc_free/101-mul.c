@@ -56,12 +56,12 @@ int mul(char *num1, char *num2, int len_1, int len_2)
 
 /**
  * main-A program that multiplies two positive numbers
- * @argc: integer count of arguments to main
- * @argv: vector
+ * argc: integer count of arguments to main
+ * argv: vector
  * Return: prod of two numbers otherwise 98
  */
 
-int main()
+int main(void)
 {
 /*
 *	long result;
