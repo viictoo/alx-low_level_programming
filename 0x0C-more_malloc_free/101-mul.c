@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * mul- A function that multiplies twi numbers
+ * mul- A function that multiplies two numbers
  * @num1: integer
  * @num2: integer
  * @len_1: length of string 1
@@ -61,7 +61,7 @@ int mul(char *num1, char *num2, int len_1, int len_2)
  * Return: prod of two numbers otherwise 98
  */
 
-int main(int argc, char *argv[])
+int main()
 {
 /*
 *	long result;
