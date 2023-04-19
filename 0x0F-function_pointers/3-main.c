@@ -1,6 +1,7 @@
 #include "function_pointers.h"
 #include "3-calc.h"
-
+#include <stdio.h>
+#include <string.h>
 /**
  * main- a program that performs simple operations and prints the result of
  * the operation, followed by a new line
@@ -20,24 +21,17 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	if (!(get_op_func(argv[2])) || argv[2][1] != '\0')
-	{
-		printf("Error\n");
-		exit(98);
-	}
 	p = get_op_func(argv[2]);
-	if (p)
-	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[3]);
-		res = p(num1, num2);
-		printf("%d\n", res);
-	}
-	else
+	if (!p)
 	{
 		printf("Error\n");
-		exit(99);
+		return (99);
 	}
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	res = p(num1, num2);
+	printf("%d\n", res);
 	return (0);
 }
 
