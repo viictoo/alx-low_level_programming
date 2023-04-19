@@ -1,6 +1,7 @@
 #ifndef CALC_H
 #define CALC_H
 #include <stdlib.h>
+#include "function_pointers.h"
 /**
   * struct op- A struct containing operator and associated function as elements
   * @op: operator
