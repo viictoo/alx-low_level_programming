@@ -32,9 +32,13 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < count; i++)
 	{
-		printf("%02x", *(p + i));
+		if (i == (count - 1))
+		{
+		printf("%02hhx\n", p[i]);
+		break;
+		}
+		printf("%02hhx ", p[i]);
 	}
 
-	printf("\n");
 	return (0);
 }
