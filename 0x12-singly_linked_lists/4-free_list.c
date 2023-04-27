@@ -15,7 +15,7 @@ void free_list(list_t *head)
 		return;
 	}
 	ptr = head;
-	while (ptr != NULL)
+	while (ptr)
 	{
 		temp = ptr;
 		ptr = ptr->next;
@@ -28,4 +28,3 @@ void free_list(list_t *head)
 	}
 
 }
-
