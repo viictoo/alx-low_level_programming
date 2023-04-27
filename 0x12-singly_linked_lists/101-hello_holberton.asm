@@ -1,19 +1,18 @@
 section .data
-hello db 'Hello, Holberton',10 ; 10 is the ASCII code for newline
+hello: db "Hello, Holberton", 0Ah
+format: db "%s"
 
 section .text
-global _start
+global main
 
-_start:
-; write the string to stdout
-mov rax, 1 ; system call for write
-mov rdi, 1 ; stdout file descriptor
-mov rsi, hello ; address of string
-mov rdx, 17 ; string length
-syscall ; call kernel to write string to stdout
+extern printf
 
-; exit
-mov rax, 60 ; system call for exit
-xor rdi, rdi ; exit status
-syscall ; call kernel to exit program
-
+main:
+push rbx
+lea rdi, [format]
+lea rsi, [hello]
+xor eax, eax
+call printf
+pop rbx
+xor eax, eax
+ret
