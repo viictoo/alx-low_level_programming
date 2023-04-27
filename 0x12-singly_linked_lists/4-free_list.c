@@ -14,10 +14,7 @@ void free_list(list_t *head)
 	{
 		return;
 	}
-
-
 	ptr = head;
-
 	while (ptr != NULL)
 	{
 		temp = ptr;
@@ -30,6 +27,5 @@ void free_list(list_t *head)
 		free(temp);
 	}
 
-	free(head);
 }
 
