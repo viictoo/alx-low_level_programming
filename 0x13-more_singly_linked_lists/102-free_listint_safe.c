@@ -1,24 +1,45 @@
 #include "lists.h"
 
-/**
- * A function that frees a list
- * @h: node
- * Return: size of list
- */
 
+/**
+ * free_listint_safe - Frees a listint_t list safely.
+ * @h: A pointer to the head of the listint_t list.
+ *
+ * Return: The size of the list that was freed.
+ */
 size_t free_listint_safe(listint_t **h)
 {
-	unsigned int i;
-	listint_t *flush;
+	unsigned int i = 0;
+	listint_t *kobe, *hare;
 
-	if (!*head)
-		return (NULL);
+	if (!h || !(*h))
+		return (0);
 
-	for (i = 0; *head; *head = *head->next, i++, free(flush))
+	kobe = *h;
+	hare = (*h)->next;
+
+	while (kobe && hare)
 	{
-		flush = head;
-		free(head->str);
+		free(kobe);
+		kobe = hare;
+		hare = hare->next;
+		i++;
+
+		if (hare >= kobe)
+		{
+			free(hare);
+			i++;
+			break;
+		}
 	}
-	head = NULL;
+
+	if (kobe)
+	{
+		free(kobe);
+		i++;
+	}
+
+	*h = NULL;
 	return (i);
 }
+

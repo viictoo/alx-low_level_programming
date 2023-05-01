@@ -1,4 +1,5 @@
 
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -23,9 +24,7 @@ int main(void)
 	add_nodeint_end(&head, 402);
 	add_nodeint_end(&head, 1024);
 	print_listint(head);
-	printf("-----------------\n");
-	insert_nodeint_at_index(&head, 5, 4096);
-	print_listint(head);
-	free_listint2(&head);
+	free_listint(head);
+	head = NULL;
 	return (0);
 }

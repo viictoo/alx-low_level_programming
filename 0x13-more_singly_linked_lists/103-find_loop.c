@@ -13,14 +13,12 @@ listint_t *find_listint_loop(listint_t *head)
 
 	for (; head; head = head->next)
 	{
+		for (temp = head->next; temp; temp = temp->next)
 		{
-			for (temp = head; temp; temp = temp->next)
-			{
-				if (temp->next == head)
-					return (temp)
-			}
+			if (temp == head)
+				return (temp);
 		}
 	}
-	return (null);
+	return (NULL);
 }
 
