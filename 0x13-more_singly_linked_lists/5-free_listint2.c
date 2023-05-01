@@ -10,6 +10,8 @@ void free_listint2(listint_t **head)
 {
 	listint_t *flush, *temp;
 
+	if (!head || !(*head))
+		return (NULL);
 
 	for (temp = *head, *head = NULL; temp; temp = temp->next, free(flush))
 		flush = temp;
