@@ -10,6 +10,8 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *temp;
 
+	if (!head)
+		return (NULL);
 
 	for (; head; head = head->next)
 	{

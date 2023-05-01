@@ -17,7 +17,6 @@ size_t free_listint_safe(listint_t **h)
 
 	kobe = *h;
 	hare = (*h)->next;
-
 	while (kobe && hare)
 	{
 		free(kobe);
@@ -38,7 +37,6 @@ size_t free_listint_safe(listint_t **h)
 		free(kobe);
 		i++;
 	}
-
 	*h = NULL;
 	return (i);
 }
