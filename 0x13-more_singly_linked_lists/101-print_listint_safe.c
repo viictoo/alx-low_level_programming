@@ -10,6 +10,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0;
 
+
 	if (!head)
 		exit(98);
 	for (; head; head = head->next, i++)
@@ -19,7 +20,8 @@ size_t print_listint_safe(const listint_t *head)
 		if (head <= head->next)
 		{
 		printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-			break;
+		i++;	
+		break;
 		}
 	}
 	return (i);
