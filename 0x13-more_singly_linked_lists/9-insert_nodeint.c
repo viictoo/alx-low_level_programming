@@ -13,11 +13,19 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *prop, *temp;
 	unsigned int i = 1;
 
+	if ((!head || !(*head)) && idx)
+		return (NULL);
 	prop = malloc(sizeof(listint_t));
 	if (!prop)
 		return (NULL);
 	prop->n = n;
 	temp = *head;
+
+	if (idx == 0)
+	{
+		prop->next = *head;
+		*head = prop;
+	}
 
 	for (; i != idx && (temp); i++, (temp) = (temp)->next)
 		;
