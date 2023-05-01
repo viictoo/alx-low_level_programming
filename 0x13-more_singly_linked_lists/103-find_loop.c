@@ -8,19 +8,29 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *temp;
+	listint_t *kobe, *hare;
 
 	if (!head)
 		return (NULL);
+	hare = head;
+	kobe = head;
 
-	for (; head; head = head->next)
+	while (hare && kobe && hare->next)
 	{
-		for (temp = head->next; temp; temp = temp->next)
+		kobe = kobe->next;
+		hare = hare->next->next;
+		if (kobe == hare)
 		{
-			if (temp == head)
-				return (temp);
+			kobe = head;
+			while (kobe != hare)
+			{
+				kobe = kobe->next;
+				hare = hare->next;
+			}
+			return (kobe);
 		}
 	}
+		
 	return (NULL);
 }
 

@@ -16,27 +16,19 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 
 	kobe = *h;
-	hare = (*h)->next;
-	while (kobe && hare)
+	while (kobe)
 	{
+		hare  = kobe->next;
 		free(kobe);
-		kobe = hare;
-		hare = hare->next;
 		i++;
 
 		if (hare >= kobe)
 		{
-			free(hare);
-			i++;
 			break;
 		}
+		kobe  = hare;
 	}
 
-	if (kobe)
-	{
-		free(kobe);
-		i++;
-	}
 	*h = NULL;
 	return (i);
 }
