@@ -5,26 +5,25 @@
  * @head: node
  * Return: Number of nodes in the list
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i = 0;
 
-
 	if (!head)
 		return (0);
-	for (; head; head = head->next, i++)
+
+	while (head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
-
+		i++;
 		if (head <= head->next)
 		{
-		head = head->next;
-		printf("-> [%p] %d\n", (void *)head, head->n);
-		i++;
+		printf("-> [%p] %d\n", (void *)head->next, head->next->n);
 		exit(98);
-
 		}
+		head = head->next;
 	}
+
 	return (i);
 }
+
