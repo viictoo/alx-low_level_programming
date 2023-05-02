@@ -8,7 +8,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *hare = head, *kobe = head;
-	size_t i = 0, j, flag = 0;
+	size_t i = 0, j = 0, flag = 0;
 
 	if (head == NULL)
 		return (0);
@@ -26,18 +26,18 @@ size_t print_listint_safe(const listint_t *head)
 	if (flag)
 	{
 		kobe = head;
-		for (j = 0; j < i; j++)
+		for (j = 0; j < i - 1; j++)
 		{
 			if (hare == kobe)
 			{
 				printf("-> [%p] %d\n", (void *)hare, hare->n);
-				i++;
 				break;
 			}
 			printf("[%p] %d\n", (void *)hare, hare->n);
 			hare = hare->next;
 			kobe = kobe->next;
-		}	}
+		}
+		i = j + 1;	}
 	else
 	{
 		while (kobe)
