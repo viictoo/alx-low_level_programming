@@ -7,43 +7,23 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *kobe, *fast;
-	size_t count = 0;
+	size_t i = 0;
+
 
 	if (!head)
 		return (0);
-	kobe = head;
-	fast = head;
-	while (kobe)
+	for (; head; head = head->next, i++)
 	{
-		if (!fast || !(fast->next))
-			break;
-		printf("[%p] %d\n", (void *)kobe, kobe->n);
-		count++;
-		kobe = kobe->next;
-		fast = fast->next->next;
-		if (kobe == fast)
+		printf("[%p] %d\n", (void *)head, head->n);
+
+		if (head <= head->next)
 		{
-			kobe = head;
-			while (kobe)
-			{
-				printf("[%p] %d\n", (void *)fast, fast->n);
-				kobe = kobe->next;
-				fast = fast->next;
-				count++;
-				if (kobe == fast)
-				{
-				printf("-> [%p] %d\n", (void *)fast, fast->n);
-				return (count);
-				}
-				if (!fast || !fast->next)
-					break;
-			}	}
+			head = head->next;
+			printf("-> [%p] %d\n", (void *)head, head->n);
+			i++;
+			break;
+
+		}
 	}
-	while (kobe)
-	{
-		printf("[%p] %d\n", (void *)kobe, kobe->n);
-		count++;
-		kobe = kobe->next;	}
-	return (count);
+	return (i);
 }
