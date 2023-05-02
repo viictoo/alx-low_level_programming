@@ -1,29 +1,49 @@
 #include "lists.h"
 
 /**
- * print_listint_safe -  function that prints a listint_t linked list
+ * print_listint_safe - prints a listint_t linked list
  * @head: node
  * Return: Number of nodes in the list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i = 0;
+	const listint_t *hare = head, *kobe = head;
+	size_t i = 0, j, flag = 0;
 
-	if (!head)
+	if (head == NULL)
 		return (0);
-
-	while (head)
+	while (kobe && hare && hare->next)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
+		printf("[%p] %d\n", (void *)kobe, kobe->n);
 		i++;
-		if (head <= head->next)
+		hare = hare->next->next;
+		kobe = kobe->next;
+		if (hare == kobe)
 		{
-		printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-		break;
-		}
-		head = head->next;
-	}
-
-	return (i);
-}
-
+			flag = 1;
+			break;
+		}	}
+	if (flag)
+	{
+		kobe = head;
+		for (j = 0; j < i; j++)
+		{
+			if (hare == kobe)
+			{
+				printf("-> [%p] %d\n", (void *)hare, hare->n);
+				i++;
+				break;
+			}
+			printf("[%p] %d\n", (void *)hare, hare->n);
+			hare = hare->next;
+			kobe = kobe->next;
+		}	}
+	else
+	{
+		while (kobe)
+		{
+			printf("[%p] %d\n", (void *)kobe, kobe->n);
+			i++;
+			kobe = kobe->next;
+		}		}
+	return (i);	}
