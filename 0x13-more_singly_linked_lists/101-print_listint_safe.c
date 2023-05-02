@@ -20,7 +20,6 @@ size_t print_listint_safe(const listint_t *head)
 		count++;
 		kobe = kobe->next;
 		fast = fast->next->next;
-
 		if (kobe == fast)
 		{
 			kobe = head;
@@ -34,7 +33,10 @@ size_t print_listint_safe(const listint_t *head)
 				{
 				printf("-> [%p] %d\n", (void *)fast, fast->n);
 				return (count);
-				}	}	}
+				}
+				if (!fast || !fast->next)
+					break;
+			}	}
 		if (!kobe)
 			exit(98);
 	}
@@ -42,7 +44,6 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)kobe, kobe->n);
 		count++;
-		kobe = kobe->next;
-	}
+		kobe = kobe->next;	}
 	return (count);
 }
