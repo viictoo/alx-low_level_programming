@@ -7,11 +7,13 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *kobe = head, *fast = head;
+	const listint_t *kobe, *fast;
 	size_t count = 0;
 
 	if (!head)
 		return (0);
+	kobe = head;
+	fast = head;
 	while (kobe)
 	{
 		if (!fast || !(fast->next))
@@ -37,8 +39,6 @@ size_t print_listint_safe(const listint_t *head)
 				if (!fast || !fast->next)
 					break;
 			}	}
-		if (!kobe)
-			exit(98);
 	}
 	while (kobe)
 	{
