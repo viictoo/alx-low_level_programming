@@ -32,8 +32,8 @@ size_t print_listint_safe(const listint_t *head)
 				count++;
 				if (kobe == fast)
 				{
-					printf("-> [%p] %d\n", (void *)fast, fast->n);
-					return (count);
+				printf("-> [%p] %d\n", (void *)fast, fast->n);
+				return (count);
 				}	}	}
 		if (!kobe)
 			exit(98);
@@ -43,7 +43,6 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)kobe, kobe->n);
 		count++;
 		kobe = kobe->next;
-
 	}
 	return (count);
 }
