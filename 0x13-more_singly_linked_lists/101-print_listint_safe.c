@@ -5,27 +5,46 @@
  * @head: node
  * Return: Number of nodes in the list
  */
+
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i = 0;
-
+	const listint_t *kobe, *fast;
+	size_t count = 0;
 
 	if (!head)
 		return (0);
-	for (; head; head = head->next, i++)
+	kobe = head;
+	fast = head;
+	while (kobe)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
-
-		if (head <= head->next)
-		{
-			head = head->next;
-			printf("-> [%p] %d\n", (void *)head, head->n);
-			i++;
+		if (!fast || !(fast->next))
 			break;
-
-		}
-		if (!head)
-			exit(98);
+		printf("[%p] %d\n", (void *)kobe, kobe->n);
+		count++;
+		kobe = kobe->next;
+		fast = fast->next->next;
+		if (kobe == fast)
+		{
+			kobe = head;
+			while (kobe)
+			{
+				printf("[%p] %d\n", (void *)fast, fast->n);
+				kobe = kobe->next;
+				fast = fast->next;
+				count++;
+				if (kobe == fast)
+				{
+					printf("-> [%p] %d\n", (void *)fast, fast->n);
+					return (count);
+				}
+				if (!fast || !fast->next)
+					break;
+			}       }
 	}
-	return (i);
+	while (kobe)
+	{
+		printf("[%p] %d\n", (void *)kobe, kobe->n);
+		count++;
+		kobe = kobe->next;      }
+	return (count);
 }
