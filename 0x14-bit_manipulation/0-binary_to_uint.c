@@ -8,25 +8,12 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i = 0, temp = 0, num = 0, x = 0;
-
-	if (!b)
-		return (0);
-
+	unsigned int n = 0;
+	if (!b) return n;
 	while (*b)
 	{
-		if (*b != '0' && *b != 1)
-			return (0);
-		temp = *b - '0';
-		i++;
-		b++;
+		if (*b != '0' && *b != '1') return 0;
+		n = (n << 1) + (*b++ - '0');
 	}
-	while (i > 0)
-	{
-		num += (temp % 10) * (1 << x);
-		temp /= 10;
-		i--;
-		x++;
-	}
-	return (num);
+	return n;
 }
