@@ -34,7 +34,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fildes);
 		return (0);
 	}
-	buffer[read_count] = '\0';
 
 	write_count = write(1, buffer, read_count);
 	if (write_count == -1 || write_count != read_count)
