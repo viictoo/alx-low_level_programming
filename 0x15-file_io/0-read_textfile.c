@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <errno.h>
 /**
  * read_textfile - A function that reads a text file and prints it
  * @filename: name of the file
@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	buffer = malloc(sizeof(char) * (letters + 1));
 	if (buffer == NULL)
-	return (0);
+		return (0);
 
 	fildes = open(filename, O_RDONLY);
 	if (fildes == -1)
@@ -35,7 +35,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	write_count = write(1, buffer, read_count);
+	write_count = write(2, buffer, read_count);
 	if (write_count == -1 || write_count != read_count)
 	{
 		free(buffer);
