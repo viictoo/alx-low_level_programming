@@ -9,7 +9,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fildes, stdout_copy;
+	int fildes;
 	ssize_t read_count, write_count;
 	char *buffer;
 
@@ -30,22 +30,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(fildes);
 		return (0);	}
 
-	stdout_copy = dup(STDOUT_FILENO);
 	write_count = write(STDOUT_FILENO, buffer, read_count);
-	if (write_count == -1 || write_count != read_count)
+	if (write_count == -1)
 	{
 		free(buffer);
 		close(fildes);
-		return (0);	}
-	write_count = write(STDERR_FILENO, buffer, read_count);
-	if (write_count == -1 || write_count != read_count)
-	{
-		free(buffer);
-		close(fildes);
-		return (0);	}
+		return (0);
+	}
 
 	free(buffer);
 	close(fildes);
-	close(stdout_copy);
 	return (write_count);
 }
