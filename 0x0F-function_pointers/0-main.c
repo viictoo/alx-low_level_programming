@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "function_pointers.h"
-
+#include <stdlib.h>
 /**
  * print_name_as_is - prints a name as is
  * @name: name of the person
@@ -45,8 +45,13 @@ void print_name_uppercase(char *name)
  */
 int main(void)
 {
+
+	unsigned char *p;
+	int count, i;
+
 	print_name("Bob", print_name_as_is);
 	print_name("Bob Dylan", print_name_uppercase);
 	printf("\n");
+
 	return (0);
 }

@@ -6,45 +6,64 @@
  * Return: Number of nodes in the list
  */
 
+void free_listp(listp_t **head)
+{
+	listp_t *temp;
+	listp_t *curr;
+
+	if (head != NULL)
+	{
+		curr = *head;
+		while ((temp = curr) != NULL)
+		{
+			curr = curr->next;
+			free(temp);
+		}
+		*head = NULL;
+	}
+}
+
+/**
+ * print_listint_safe - prints a linked list.
+ * @head: head of a list.
+ *
+ * Return: number of nodes in the list.
+ */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *kobe, *fast;
-	size_t count = 0;
+	size_t nnodes = 0;
+	listp_t *hptr, *new, *add;
 
-	if (!head)
-		return (0);
-	kobe = head;
-	fast = head;
-	while (kobe)
+	hptr = NULL;
+	while (head != NULL)
 	{
-		if (!fast || !(fast->next))
-			break;
-		printf("[%p] %d\n", (void *)kobe, kobe->n);
-		count++;
-		kobe = kobe->next;
-		fast = fast->next->next;
-		if (kobe == fast)
+		new = malloc(sizeof(listp_t));
+
+		if (new == NULL)
+			exit(98);
+
+		new->p = (void *)head;
+		new->next = hptr;
+		hptr = new;
+
+		add = hptr;
+
+		while (add->next != NULL)
 		{
-			kobe = head;
-			while (kobe)
+			add = add->next;
+			if (head == add->p)
 			{
-				printf("[%p] %d\n", (void *)fast, fast->n);
-				kobe = kobe->next;
-				fast = fast->next;
-				count++;
-				if (kobe == fast)
-				{
-					printf("-> [%p] %d\n", (void *)fast, fast->n);
-					return (count);
-				}
-				if (!fast || !fast->next)
-					break;
-			}       }
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free_listp(&hptr);
+				return (nnodes);
+			}
+		}
+
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
+		nnodes++;
 	}
-	while (kobe)
-	{
-		printf("[%p] %d\n", (void *)kobe, kobe->n);
-		count++;
-		kobe = kobe->next;      }
-	return (count);
+
+	free_listp(&hptr);
+	return (nnodes);
 }
