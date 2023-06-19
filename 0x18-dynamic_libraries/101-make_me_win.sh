@@ -1,3 +1,3 @@
- #!/bin/bash
-wget -P .. https://raw.githubusercontent.com/monoprosito/holbertonschool-low_level_programming/master/0x18-dynamic_libraries/libgiga.so
-export LD_PRELOAD="$PWD/../libgiga.so"
+#!/bin/bash
+wget -qP /tmp/ https://github.com/viictoo/alx-low_level_programming/tree/main/0x18-dynamic_libraries/101-lib.so
+export LD_PRELOAD="/tmp/101-lib.so"
