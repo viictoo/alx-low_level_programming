@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -qP /tmp/ https://github.com/viictoo/alx-low_level_programming/tree/main/0x18-dynamic_libraries/101-lib.so
-export LD_PRELOAD="/tmp/101-lib.so"
+wget -P .. https://github.com/viictoo/alx-low_level_programming/raw/main/0x18-dynamic_libraries/always_win.so
+export LD_PRELOAD="$PWD/../always_win.so"
