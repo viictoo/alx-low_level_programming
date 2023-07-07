@@ -72,7 +72,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
  * Return: 1 if it succeeded, 0 otherwise
  */
 int create_snode(shash_table_t *ht, const char *key,
-const char *value, size_t idx)
+		const char *value, size_t idx)
 {
 	shash_node_t *setNode, *current;
 	char *val_cpy;
@@ -141,7 +141,32 @@ void sort_list(shash_table_t *ht, shash_node_t *newNode)
 	else
 		ht->shead = newNode;
 }
+/**
+ * shash_table_get - retrieve value from sorted hash table
+ * @ht: sorted hash table
+ * @key: key to the desired value
+ * Return: the value associated with key otherwise NULL
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	size_t index;
+	shash_node_t *getPtr;
 
+	if (!ht || !(ht->array) || !(ht->size) ||
+			!(key) || strlen(key) == 0)
+		return (NULL);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	getPtr = ht->array[index];
+
+	while (getPtr != NULL)
+	{
+		if (strcmp(getPtr->key, key) == 0)
+			return (getPtr->value);
+		getPtr = getPtr->next;
+	}
+	return (NULL);
+}
 /**
  * shash_table_print - print key/values of hash table in order
  * @ht: hash table
@@ -218,5 +243,8 @@ void shash_table_delete(shash_table_t *ht)
 		}
 	}
 	free(ht->array);
+	ht->array = NULL;
+	ht->shead = ht->stail = NULL;
+	ht->size = 0;
 	free(ht);
 }
