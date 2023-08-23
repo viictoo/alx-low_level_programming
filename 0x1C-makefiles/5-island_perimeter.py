@@ -8,7 +8,8 @@ def island_perimeter(grid):
         return
     p = 0
     for i in range(len(grid) - 1):
-        for j in range(len(grid) - 1):
+        for j in range(len(grid[i]) - 1):
+        #     print(grid[i][j])
             if grid[i][j] ^ grid[i + 1][j]:
                 p += 1
             if grid[i][j] ^ grid[i][j + 1]:
