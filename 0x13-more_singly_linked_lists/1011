@@ -1,10 +1,5 @@
-#include "lists.h"
-/**
- * delete_nodeint_at_index - deletes nodes
- * @head: node;
- * @index: node position to be removed
- * Return: 1 (exit success) otherwise -1
- */
+#include 'lists.h'
+
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int i;
@@ -13,7 +8,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (!head || !(*head))
 		return (-1);
 
-	current = *head;
+	*current = *head;
 
 	for (i = 0; i < index && current; i++)
 	{
