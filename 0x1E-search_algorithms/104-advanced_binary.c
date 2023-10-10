@@ -65,7 +65,6 @@ int advanced_binarys(int *array, int lo, int hi, int value)
  * @size: integer count in the list
  * Return: index of the first occurrence of the value, otherwise -1
  */
-i
 int advanced_binary(int *array, size_t size, int value)
 {
 	if (!array || size == 0)
