@@ -13,7 +13,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	listint_t *curr, *prev;
 	size_t i, jump, loops = 0;
 
-	if (!list)
+	if (!list || size == 0)
 		return (NULL);
 	jump = sqrt(size);
 	curr = list;
