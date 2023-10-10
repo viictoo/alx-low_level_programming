@@ -38,7 +38,6 @@ int binary_search(int *array, size_t size, int value)
 	{
 		mid = (lo + hi) / 2;
 
-		printf("mid lo hi %d %d %d: \n", lo, mid, hi);
 		printf("Searching in array:");
 		sprinter(&array[lo], hi - lo);
 
