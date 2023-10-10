@@ -62,7 +62,7 @@ int jump_search(int *array, size_t size, int value)
 {
 	size_t i = 0, jump = 0, count = 1;
 
-	if (!array)
+	if (!array || size == 0)
 		return (-1);
 
 	jump = (squareRoot((int)size));
