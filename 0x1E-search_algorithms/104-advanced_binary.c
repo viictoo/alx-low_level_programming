@@ -22,7 +22,7 @@ void sprinter(int *array, int size)
 	printf("\n");
 }
 /**
- * binary_search - a recursive function that searches for the first occurrence
+ * advanced_binarys - a recursive function that searches for first occurrence
  *                of a value in a sorted array.
  * @array: input list of values to search through
  * @lo: low index of the subarray
@@ -30,13 +30,12 @@ void sprinter(int *array, int size)
  * @value: integer to search for in the list
  * Return: index of the first occurrence of the value, otherwise -1
  */
-int binary_search(int *array, int lo, int hi, int value)
+int advanced_binarys(int *array, int lo, int hi, int value)
 {
 	if (lo <= hi)
 	{
 		int mid = lo + (hi - lo) / 2;
 
-		printf("mid lo hi %d %d %d: \n", lo, mid, hi);
 		printf("Searching in array:");
 		sprinter(&array[lo], hi - lo);
 
@@ -45,17 +44,32 @@ int binary_search(int *array, int lo, int hi, int value)
 			if (mid == lo || array[mid - 1] != value)
 				return (mid);
 			else
-				return (binary_search(array, lo, mid - 1, value));
+				return (advanced_binarys(array, lo, mid - 1, value));
 		}
-		else if (array[mid] < value)
+		else if (array[mid] >= value)
 		{
-			return (binary_search(array, mid + 1, hi, value));
+			return (advanced_binarys(array, lo, mid, value));
 		}
 		else
 		{
-			return (binary_search(array, lo, mid - 1, value));
+			return (advanced_binarys(array, mid + 1, hi, value));
 		}
 	}
 	return (-1);
 }
+/**
+ * advanced_binary - a recursive function that searches for the first occurr
+ *                of a value in a sorted array.
+ * @array: input list of values to search through
+ * @value: integer to search for in the list
+ * @size: integer count in the list
+ * Return: index of the first occurrence of the value, otherwise -1
+ */
+i
+int advanced_binary(int *array, size_t size, int value)
+{
+	if (!array || size == 0)
+		return (-1);
 
+	return (advanced_binarys(array, 0, (int)(size - 1), value));
+}
