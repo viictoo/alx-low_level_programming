@@ -60,28 +60,19 @@ int linear_search2(int *array, size_t size, int value, int index)
 
 int jump_search(int *array, size_t size, int value)
 {
-	int i = 0, jump = 0, count = 1;
+	size_t i = 0, jump = 0, count = 1;
 
 	if (!array)
 		return (-1);
 
 	jump = (squareRoot((int)size));
 
-	for (i = 0; (jump * count) <= (int)size; i += jump, count++)
+	for (i = 0; i < size && array[i] < value; count = i, i += jump)
 	{
-		printf("Value checked array[%d] = [%d]\n", i, array[i]);
-		if (array[i] <= value && array[i + jump] >= value)
-		{
-			printf("Value found between indexes [%d] and [%d]\n",
-					i, i + jump);
-			return (linear_search2
-					(&array[i],
-					 size - (jump * count),
-					 value, i));
-		}
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 	}
 
-	printf("Value found between indexes [%d] and [%d]\n", i, i + jump);
-	/*printf("%ld, %d, %d\n", size, rem, i);*/
-	return (linear_search2(&array[i], size - i, value, i));
+	printf("Value found between indexes [%ld] and [%ld]\n", count, i);
+	return (linear_search2(array + i - jump, size - (
+					i - jump), value, i - jump));
 }
