@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "search_algos.h"
+#include <math.h>
 /**
  * squareRoot - get the square root using improv Newtons squareroot method
  * for complexity reasons
@@ -65,7 +66,7 @@ int jump_search(int *array, size_t size, int value)
 	if (!array || size == 0)
 		return (-1);
 
-	jump = (squareRoot((int)size));
+	jump = (sqrt(size));
 
 	for (i = 0; i < size && array[i] < value; count = i, i += jump)
 	{
