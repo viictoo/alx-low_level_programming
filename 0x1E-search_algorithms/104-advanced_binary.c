@@ -39,20 +39,21 @@ int advanced_binarys(int *array, int lo, int hi, int value)
 		printf("Searching in array:");
 		sprinter(&array[lo], hi - lo);
 
-		if (array[mid] == value)
-		{
-			if (mid == lo || array[mid - 1] != value)
-				return (mid);
-			else
-				return (advanced_binarys(array, lo, mid - 1, value));
-		}
-		else if (array[mid] >= value)
+		if (array[mid] > value)
 		{
 			return (advanced_binarys(array, lo, mid, value));
 		}
-		else
+		else if (array[mid] < value)
 		{
 			return (advanced_binarys(array, mid + 1, hi, value));
+		}
+		else if (array[mid] == value && array[mid - 1] == value)
+		{
+			return (advanced_binarys(array, lo, mid, value));
+		}
+		else if (array[mid] == value)
+		{
+			return (mid);
 		}
 	}
 	return (-1);
