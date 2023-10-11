@@ -10,7 +10,7 @@
 int squareRoot(int n)
 {
 
-	float accuracy = 0.00001;
+	float accuracy = 0.1;
 	int x = n, root, count = 0;
 
 	for (;;)
