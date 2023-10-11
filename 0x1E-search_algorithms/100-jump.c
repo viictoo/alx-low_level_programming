@@ -66,7 +66,7 @@ int jump_search(int *array, size_t size, int value)
 	if (!array || size == 0)
 		return (-1);
 
-	jump = (squareRoot(size));
+	jump = (sqrt(size));
 
 	for (i = 0; i < size && array[i] < value; count = i, i += jump)
 	{
